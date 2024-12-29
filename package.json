@@ -2,18 +2,61 @@
   "name": "imgnx-electron",
   "version": "1.0.0",
   "description": "IMGNXTION -flavored Electron.js",
-  "main": "main.js",
+  "main": "dist/main.js",
   "scripts": {
-    "test": "jest"
+    "start": "concurrently \"npm:react\" \"npm:electron\"",
+    "react": "webpack serve --config webpack.config.js --mode development",
+    "electron": "nodemon --exec electron .",
+    "build": "electron-builder",
+    "test": "jest",
+    "build:ts": "tsc",
+    "build:app": "npm run build:ts && electron-builder"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imgnxorg/imgnx-electron.git"
+  },
+  "build": {
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "build"
+    }
   },
   "author": "@imgnx",
   "license": "0BSD",
   "bugs": {
     "url": "https://github.com/imgnxorg/imgnx-electron/issues"
   },
-  "homepage": "https://github.com/imgnxorg/imgnx-electron#readme"
+  "homepage": "https://github.com/imgnxorg/imgnx-electron#readme",
+  "dependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "bootstrap": "^5.3.3",
+    "concurrently": "^9.1.1",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^3.1.9",
+    "postcss": "^8.4.49",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-server-dom-webpack": "^19.0.0",
+    "tailwindcss": "^3.4.17",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90"
 }
