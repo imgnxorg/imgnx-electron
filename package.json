@@ -1,0 +1,19 @@
+{
+  "name": "imgnx-electron",
+  "version": "1.0.0",
+  "description": "IMGNXTION -flavored Electron.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imgnxorg/imgnx-electron.git"
+  },
+  "author": "@imgnx",
+  "license": "0BSD",
+  "bugs": {
+    "url": "https://github.com/imgnxorg/imgnx-electron/issues"
+  },
+  "homepage": "https://github.com/imgnxorg/imgnx-electron#readme"
+}
